@@ -15,10 +15,10 @@ struct ProjectListView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 5) {
                 List {
-                    ForEach(coreDataVM.savedEntities.sorted(by: { $0.projectDate ?? "" < $1.projectDate ?? "" }), id: \.self) { items in
+                    ForEach(coreDataVM.savedEntities.sorted(by: { $0.projectDate ?? "" > $1.projectDate ?? "" }), id: \.self) { items in
                         
                         VStack {
-                            ProjectCell(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectDate: items.projectDate ?? "", projectLocation: items.location ?? "")
+                            ProjectCell(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectDate: items.projectDate ?? "", projectLocation: items.location ?? "", categoryColor: items.categoryColor ?? "lightBlack")
                         }
                     }
                     .onDelete(perform: { indexSet in
@@ -31,7 +31,7 @@ struct ProjectListView: View {
                 }
                 
             }
-            .navigationTitle("Project List View")
+            .navigationTitle("Ongoing Projects")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

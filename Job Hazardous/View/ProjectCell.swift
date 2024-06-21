@@ -13,6 +13,7 @@ struct ProjectCell: View {
     @State var projectNumber: String
     @State var projectDate: String
     @State var projectLocation: String
+    @State var categoryColor: String
     
     private func getScreenRect() -> CGRect {
         return UIScreen.main.bounds
@@ -28,8 +29,8 @@ struct ProjectCell: View {
                 .background {
                     Capsule()
                         .fill(.white.opacity(0.40))
-                        .frame(minWidth: 180, minHeight: 40)
-                      //  .frame(width: 160, height: 40)
+                        .frame(minWidth: 180, minHeight: 36)
+                    //  .frame(width: 160, height: 40)
                 }
                 .padding(.horizontal, 10)
             
@@ -63,20 +64,27 @@ struct ProjectCell: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-//        .frame(width: 360, height: getScreenRect().height/4.0, alignment: .leading)
-    
+        //        .frame(width: 360, height: getScreenRect().height/4.0, alignment: .leading)
+        
         .background {
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(Color(.systemGray))
+            RoundedRectangle(cornerRadius: 12,style: .continuous)
+                .fill(Color(categoryColor))
+//            if categoryColor == categoryColor {
+//                RoundedRectangle(cornerRadius: 12, style: .continuous)
+//                    .fill(Color(categoryColor))
+//            } else {
+//                RoundedRectangle(cornerRadius: 12, style: .continuous)
+//                    .fill(Color(.systemGray))
+//            }
         }
     }
 }
 
 struct ProjectCell_Preview: PreviewProvider {
     static var previews: some View {
-        let dummyProject = ProjectCell(projectName: "Project Pearl", projectNumber: "122200", projectDate: "June 21, 2024", projectLocation: "Nashville, TN")
+        let dummyProject = ProjectCell(projectName: "Project Pearl", projectNumber: "122200", projectDate: "June 21, 2024", projectLocation: "Nashville, TN", categoryColor: "")
         
-        ProjectCell(projectName: dummyProject.projectName, projectNumber: dummyProject.projectNumber, projectDate: dummyProject.projectDate, projectLocation: dummyProject.projectLocation)
+        ProjectCell(projectName: dummyProject.projectName, projectNumber: dummyProject.projectNumber, projectDate: dummyProject.projectDate, projectLocation: dummyProject.projectLocation, categoryColor: "lightBlue")
     }
 }
 

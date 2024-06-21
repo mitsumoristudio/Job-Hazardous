@@ -15,6 +15,7 @@ final class ProjectViewModel: ObservableObject {
     
     @Published var savedEntities: [ProjectEntity] = []
     @Published var editEntity: ProjectEntity?
+    @Published var categoryColor: String = "lightBlack"
     
     init() {
         persistentContainer = NSPersistentContainer(name: "CoreData")
@@ -26,7 +27,7 @@ final class ProjectViewModel: ObservableObject {
         })
     }
     
-    func addEquipments(superintendent: String, projectNumber: String, projectName: String, projectManager: String, location: String, jobsiteDescription: String, jobDate: String, client: String) {
+    func addEquipments(superintendent: String, projectNumber: String, projectName: String, projectManager: String, location: String, jobsiteDescription: String, jobDate: String, client: String, categoryColor: String) {
         let newEntity = ProjectEntity(context: persistentContainer.viewContext)
         newEntity.superintendent = superintendent
         newEntity.projectNumber = projectNumber
@@ -36,6 +37,7 @@ final class ProjectViewModel: ObservableObject {
         newEntity.jobsiteDescription = jobsiteDescription
         newEntity.projectDate = jobDate
         newEntity.client = client
+        newEntity.categoryColor = categoryColor
         
         print(projectName)
         print(projectNumber)

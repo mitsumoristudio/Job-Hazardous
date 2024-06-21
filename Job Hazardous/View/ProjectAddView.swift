@@ -46,7 +46,7 @@ struct ProjectAddView: View {
                     .ignoresSafeArea()
                 
                 ScrollView(.vertical) {
-                    VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 5) {
                         
                         titleView("Project")
                         
@@ -146,6 +146,9 @@ struct ProjectAddView: View {
                             }
                             
                             VStack(alignment: .leading, spacing: 10) {
+                                
+                                colorPalleteSelection
+                                
                                 Text("Details of Jobsite")
                                     .font(.headline)
                                     .padding(.top, 2)
@@ -174,7 +177,11 @@ struct ProjectAddView: View {
                                     let laterTimeNow = timeNow
                                     let dateOnlyFormat = laterTimeNow.string(from: dateSelect)
                                     
-                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client)
+                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor)
+                                    
+//                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client)
+                                    
+                                    
                                     
                                     superintendent = ""
                                     projectNumber = ""
@@ -227,4 +234,39 @@ struct ProjectAddView_Preview: PreviewProvider {
     }
 }
 
+extension ProjectAddView {
+    // MARK: Color Picker Selection
+    @ViewBuilder
+    var colorPalleteSelection: some View {
+        
+        let selectionColors: [String] = ["lightBlue", "lightGreen", "lightOrange", "lightPurple", "lightRed", "lightYellow", "lightBlack"]
+        
+        VStack(alignment: .leading, spacing: 5) {
+            HStack(spacing: 8) {
+                ForEach(selectionColors, id: \.self) { colors in
+                    Circle()
+                        .fill(Color(colors))
+                        .frame(minWidth: 28, minHeight: 28)
+                        .background {
+                            if coreDataViewModel.categoryColor == colors {
+                                Circle()
+                                    .strokeBorder(Color.blue)
+                                    .padding(-5)
+                                    .fontWeight(.semibold)
+                            }
+                            }
+                        .contentShape(Circle())
+                    
+                    // MARK: Add onTapGesture to interact with Color
+                        .onTapGesture {
+                            coreDataViewModel.categoryColor = colors
+                        }
+                    
+                }
+            }
+            
+        }
+        
+    }
+}
 
