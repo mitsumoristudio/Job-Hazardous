@@ -14,6 +14,16 @@
 		E4E7AD572C250BD90029D23B /* Job_HazardousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD562C250BD90029D23B /* Job_HazardousTests.swift */; };
 		E4E7AD612C250BD90029D23B /* Job_HazardousUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD602C250BD90029D23B /* Job_HazardousUITests.swift */; };
 		E4E7AD632C250BD90029D23B /* Job_HazardousUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD622C250BD90029D23B /* Job_HazardousUITestsLaunchTests.swift */; };
+		E4E7AD752C250C640029D23B /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD742C250C630029D23B /* VisualEffectBlur.swift */; };
+		E4E7AD782C250D0D0029D23B /* TextFrameModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD772C250D0D0029D23B /* TextFrameModifier.swift */; };
+		E4E7AD7A2C250D4C0029D23B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD792C250D4C0029D23B /* ImagePicker.swift */; };
+		E4E7AD7D2C250DCB0029D23B /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD7B2C250DCB0029D23B /* CoreData.xcdatamodeld */; };
+		E4E7AD7F2C250E490029D23B /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD7E2C250E490029D23B /* ProjectViewModel.swift */; };
+		E4E7AD812C250EF20029D23B /* SetUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD802C250EF20029D23B /* SetUpView.swift */; };
+		E4E7AD832C250F120029D23B /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD822C250F120029D23B /* ProjectCell.swift */; };
+		E4E7AD852C250FAB0029D23B /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD842C250FAB0029D23B /* ProjectListView.swift */; };
+		E4E7AD872C2510940029D23B /* ProjectAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD862C2510940029D23B /* ProjectAddView.swift */; };
+		E4E7AD892C25118B0029D23B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AD882C25118B0029D23B /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +54,16 @@
 		E4E7AD5C2C250BD90029D23B /* Job HazardousUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Job HazardousUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E7AD602C250BD90029D23B /* Job_HazardousUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job_HazardousUITests.swift; sourceTree = "<group>"; };
 		E4E7AD622C250BD90029D23B /* Job_HazardousUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job_HazardousUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4E7AD742C250C630029D23B /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		E4E7AD772C250D0D0029D23B /* TextFrameModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFrameModifier.swift; sourceTree = "<group>"; };
+		E4E7AD792C250D4C0029D23B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E4E7AD7C2C250DCB0029D23B /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		E4E7AD7E2C250E490029D23B /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		E4E7AD802C250EF20029D23B /* SetUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpView.swift; sourceTree = "<group>"; };
+		E4E7AD822C250F120029D23B /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		E4E7AD842C250FAB0029D23B /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		E4E7AD862C2510940029D23B /* ProjectAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAddView.swift; sourceTree = "<group>"; };
+		E4E7AD882C25118B0029D23B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +116,11 @@
 			children = (
 				E4E7AD452C250BD70029D23B /* Job_HazardousApp.swift */,
 				E4E7AD472C250BD70029D23B /* ContentView.swift */,
+				E4E7AD6F2C250BF20029D23B /* Extensions */,
+				E4E7AD732C250C320029D23B /* Model */,
+				E4E7AD702C250BFC0029D23B /* System */,
+				E4E7AD712C250C050029D23B /* View */,
+				E4E7AD722C250C1E0029D23B /* ViewModel */,
 				E4E7AD492C250BD80029D23B /* Assets.xcassets */,
 				E4E7AD4B2C250BD80029D23B /* Preview Content */,
 			);
@@ -125,6 +150,51 @@
 				E4E7AD622C250BD90029D23B /* Job_HazardousUITestsLaunchTests.swift */,
 			);
 			path = "Job HazardousUITests";
+			sourceTree = "<group>";
+		};
+		E4E7AD6F2C250BF20029D23B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4E7AD742C250C630029D23B /* VisualEffectBlur.swift */,
+				E4E7AD772C250D0D0029D23B /* TextFrameModifier.swift */,
+				E4E7AD792C250D4C0029D23B /* ImagePicker.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4E7AD702C250BFC0029D23B /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E4E7AD7B2C250DCB0029D23B /* CoreData.xcdatamodeld */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		E4E7AD712C250C050029D23B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4E7AD822C250F120029D23B /* ProjectCell.swift */,
+				E4E7AD882C25118B0029D23B /* MainTabView.swift */,
+				E4E7AD862C2510940029D23B /* ProjectAddView.swift */,
+				E4E7AD842C250FAB0029D23B /* ProjectListView.swift */,
+				E4E7AD802C250EF20029D23B /* SetUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4E7AD722C250C1E0029D23B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4E7AD7E2C250E490029D23B /* ProjectViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E4E7AD732C250C320029D23B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +327,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E7AD7F2C250E490029D23B /* ProjectViewModel.swift in Sources */,
+				E4E7AD752C250C640029D23B /* VisualEffectBlur.swift in Sources */,
+				E4E7AD782C250D0D0029D23B /* TextFrameModifier.swift in Sources */,
+				E4E7AD7D2C250DCB0029D23B /* CoreData.xcdatamodeld in Sources */,
+				E4E7AD832C250F120029D23B /* ProjectCell.swift in Sources */,
+				E4E7AD872C2510940029D23B /* ProjectAddView.swift in Sources */,
+				E4E7AD7A2C250D4C0029D23B /* ImagePicker.swift in Sources */,
+				E4E7AD852C250FAB0029D23B /* ProjectListView.swift in Sources */,
 				E4E7AD482C250BD70029D23B /* ContentView.swift in Sources */,
+				E4E7AD812C250EF20029D23B /* SetUpView.swift in Sources */,
 				E4E7AD462C250BD70029D23B /* Job_HazardousApp.swift in Sources */,
+				E4E7AD892C25118B0029D23B /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +668,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E4E7AD7B2C250DCB0029D23B /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E4E7AD7C2C250DCB0029D23B /* CoreData.xcdatamodel */,
+			);
+			currentVersion = E4E7AD7C2C250DCB0029D23B /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E4E7AD3A2C250BD70029D23B /* Project object */;
 }
