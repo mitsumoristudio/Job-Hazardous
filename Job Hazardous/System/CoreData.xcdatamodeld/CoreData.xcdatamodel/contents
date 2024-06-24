@@ -5,6 +5,7 @@
         <attribute name="client" optional="YES" attributeType="String"/>
         <attribute name="jobsiteDescription" optional="YES" attributeType="String"/>
         <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="profileImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="projectDate" optional="YES" attributeType="String"/>
         <attribute name="projectManager" optional="YES" attributeType="String"/>
         <attribute name="projectName" optional="YES" attributeType="String"/>

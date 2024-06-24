@@ -23,7 +23,7 @@ struct MainTabView: View {
                     }
                     .tag(0)
                 
-                ProjectAddView(needtoRefresh: .constant(true), projectEntities: ProjectEntity())
+                ProjectAddView(needtoRefresh: .constant(true))
                     .environmentObject(ProjectViewModel())
                     .tabItem {
                         VStack() {

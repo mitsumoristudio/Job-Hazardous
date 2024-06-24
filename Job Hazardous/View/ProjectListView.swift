@@ -17,8 +17,12 @@ struct ProjectListView: View {
                 List {
                     ForEach(coreDataVM.savedEntities.sorted(by: { $0.projectDate ?? "" > $1.projectDate ?? "" }), id: \.self) { items in
                         
-                        VStack {
-                            ProjectCell(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectDate: items.projectDate ?? "", projectLocation: items.location ?? "", categoryColor: items.categoryColor ?? "lightBlack")
+                        NavigationLink {
+                            ProjectDetailCard(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectLocation: items.location ?? "", projectManager: items.projectManager ?? "", superintendent: items.superintendent ?? "", client: items.client ?? "", projectdetails: items.description, projectImage: items.profileImage)
+                        } label: {
+                            VStack() {
+                                ProjectCell(projectName: items.projectName ?? "", projectNumber: items.projectNumber ?? "", projectDate: items.projectDate ?? "", projectLocation: items.location ?? "", categoryColor: items.categoryColor ?? "lightBlack", projectImage: items.profileImage)
+                            }
                         }
                     }
                     .onDelete(perform: { indexSet in

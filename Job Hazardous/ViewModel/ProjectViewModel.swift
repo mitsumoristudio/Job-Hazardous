@@ -12,6 +12,7 @@ import CoreData
 final class ProjectViewModel: ObservableObject {
     let persistentContainer: NSPersistentContainer
     let dateFormatter = DateFormatter()
+    static let shared = ProjectViewModel()
     
     @Published var savedEntities: [ProjectEntity] = []
     @Published var editEntity: ProjectEntity?
@@ -27,7 +28,7 @@ final class ProjectViewModel: ObservableObject {
         })
     }
     
-    func addEquipments(superintendent: String, projectNumber: String, projectName: String, projectManager: String, location: String, jobsiteDescription: String, jobDate: String, client: String, categoryColor: String) {
+    func addEquipments(superintendent: String, projectNumber: String, projectName: String, projectManager: String, location: String, jobsiteDescription: String, jobDate: String, client: String, categoryColor: String, imageProject: UIImage?) {
         let newEntity = ProjectEntity(context: persistentContainer.viewContext)
         newEntity.superintendent = superintendent
         newEntity.projectNumber = projectNumber
@@ -38,10 +39,14 @@ final class ProjectViewModel: ObservableObject {
         newEntity.projectDate = jobDate
         newEntity.client = client
         newEntity.categoryColor = categoryColor
+        newEntity.profileImage = imageProject?.pngData()
+        
+        // MARK: Add Returns a data object that contains the specified image in PNG format.
         
         print(projectName)
         print(projectNumber)
         print(jobDate)
+        print(imageProject ?? (Any).self)
         
         saveEquipmentEntities()
     }

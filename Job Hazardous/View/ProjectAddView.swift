@@ -23,10 +23,12 @@ struct ProjectAddView: View {
     @State var projectLocation: String = ""
     @Environment(\.dismiss) var dismiss
     @Binding var needtoRefresh: Bool
-    @State var showImagePicker: Bool = false
+    @State var showImagePicker = false
     
     @EnvironmentObject var coreDataViewModel: ProjectViewModel
-    @State var projectEntities: ProjectEntity
+  //  @State var projectEntities: ProjectEntity
+    
+    @State private var selectedImage: UIImage?
     
     private func getScreenReact() -> CGRect {
         return UIScreen.main.bounds
@@ -46,7 +48,7 @@ struct ProjectAddView: View {
                     .ignoresSafeArea()
                 
                 ScrollView(.vertical) {
-                    VStack(alignment: .leading, spacing: 5) {
+                    VStack(alignment: .leading, spacing: 10) {
                         
                         titleView("Project")
                         
@@ -79,12 +81,14 @@ struct ProjectAddView: View {
                                     .font(.subheadline)
                                 
                                 Image(systemName: "calendar")
-                                    .font(.title3)
+                                    .font(.title)
                                     .foregroundColor(Color.white)
                                     .overlay {
                                         DatePicker("", selection: $dateSelect, displayedComponents: [.date])
                                             .blendMode(.destinationOver)
                                     }
+                                
+                                showImagePickerPhoto
                             }
                             .offset(y: -5)
                             .overlay(alignment: .bottom) {
@@ -156,15 +160,15 @@ struct ProjectAddView: View {
                                 
                                 HStack(spacing: 5) {
                                     TextEditor(text: $description)
-                                        .frame(minWidth: 360, minHeight: 80)
-                                        .cornerRadius(20)
-                                        .padding(.vertical, 5)
+                                        .frame(minWidth: 320, minHeight: 80, alignment: .center)
+                                        .cornerRadius(10)
+                                        .padding(.vertical, 2)
                                      //   .modifier(TextFieldClearButton(nextText: $description))
                                  //       .modifier(ChangeSmallerFrameSize())
                                 }
-                                
+                                .offset(x:-6)
                             }
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 5)
                             
                             VStack(spacing: 5) {
                                 Button(action: {
@@ -177,11 +181,7 @@ struct ProjectAddView: View {
                                     let laterTimeNow = timeNow
                                     let dateOnlyFormat = laterTimeNow.string(from: dateSelect)
                                     
-                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor)
-                                    
-//                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client)
-                                    
-                                    
+                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor, imageProject: selectedImage)
                                     
                                     superintendent = ""
                                     projectNumber = ""
@@ -203,23 +203,22 @@ struct ProjectAddView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 16))
                                         .shadow(radius: 20)
                                 })
-                                .offset(y: -18)
+                                .offset(y: -20)
                                 
-                                .frame(minWidth: 60, minHeight: 56, alignment: .center)
+                                .frame(minWidth: 60, minHeight: 50, alignment: .center)
                                 .padding(.horizontal, 140)
                             }
                             .padding()
-                            
+
                         }
-   
-                        
-                        
-                        
-                        
                     }
                     // MARK: - frame height assigned with CGFloat
-                    .frame(height: getScreenReact().height/1.2, alignment: .leading)
-                    .padding()
+                    .frame(height: getScreenReact().height/1.10, alignment: .leading)
+                    .padding([.leading, .vertical])
+                    
+                    .fullScreenCover(isPresented: $showImagePicker, content: {
+                        ImagePicker(image: $selectedImage)
+                    })
                     
                 }
             }
@@ -229,7 +228,7 @@ struct ProjectAddView: View {
 
 struct ProjectAddView_Preview: PreviewProvider {
     static var previews: some View {
-        ProjectAddView(needtoRefresh: .constant(true), projectEntities: ProjectEntity())
+        ProjectAddView(needtoRefresh: .constant(true))
             .environmentObject(ProjectViewModel())
     }
 }
@@ -246,7 +245,9 @@ extension ProjectAddView {
                 ForEach(selectionColors, id: \.self) { colors in
                     Circle()
                         .fill(Color(colors))
-                        .frame(minWidth: 28, minHeight: 28)
+                     
+                        // .frame(minWidth: 40, minHeight: 40)
+                        .frame(width: 36, height: 36, alignment: .center)
                         .background {
                             if coreDataViewModel.categoryColor == colors {
                                 Circle()
@@ -264,9 +265,41 @@ extension ProjectAddView {
                     
                 }
             }
+            .offset(x:-6)
             
         }
         
+    }
+    
+    @ViewBuilder
+    var showImagePickerPhoto : some View {
+        VStack(spacing: 0) {
+            Button(action: {
+                self.showImagePicker = true
+            }, label: {
+                HStack {
+                    GradientIconButton(icon: "camera.fill")
+                        .padding(.horizontal, 15)
+                    
+                    Text("Insert Photos")
+                        .foregroundStyle(Color.black)
+                        .font(.subheadline)
+                        .frame(minWidth: 40, minHeight: 40)
+                    
+                    Image(uiImage: selectedImage ?? UIImage())
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minWidth: 30, minHeight: 30, alignment: .center)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding(.horizontal, 10)
+                }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                }
+            
+            })
+        }
     }
 }
 
