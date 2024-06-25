@@ -37,8 +37,22 @@ struct ProjectListView: View {
             }
             .navigationTitle("Ongoing Projects")
             .navigationBarTitleDisplayMode(.inline)
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing, content: {
+                    NavigationLink(destination: {
+                        InspectionView().environmentObject(ProjectViewModel())
+                    }, label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(Color.white)
+                            .background(Color.black, in: Circle())
+                            .font(.title2)
+                    })
+                })
+            }
         }
     }
+    
 }
 
 struct ProjectListView_Preview: PreviewProvider {

@@ -88,17 +88,6 @@ struct ProjectDetailCard: View {
                 })
             })
             
-            ToolbarItem(placement: .navigationBarTrailing, content: {
-                NavigationLink(destination: {
-                    InspectionView().environmentObject(ProjectViewModel())
-                }, label: {
-                    Image(systemName: "plus.circle.fill")
-                        .foregroundColor(Color.white)
-                        .background(Color.black, in: Circle())
-                        .font(.title)
-                })
-            })
-            
         }
     }
 }

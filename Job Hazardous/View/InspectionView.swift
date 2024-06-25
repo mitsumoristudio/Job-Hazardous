@@ -43,6 +43,7 @@ struct InspectionView: View {
     @State var naparkBrakes: String = "N/A"
     @State var naSteering: String = "N/A"
     @State var natravelAlarm: String = "N/A"
+    @State var naDiagnostic: String = "N/A"
     
     // MARK: Fluids
     @State var naEngineOils: String = "N/A"
@@ -50,8 +51,10 @@ struct InspectionView: View {
     @State var natransmissionOil: String = "N/A"
     @State var naengineCoolant: String = "N/A"
     @State var naDef: String = "N/A"
+    var arrayProjects = ["Project Pearl", "Amazon", "Bojangles"]
     
     @EnvironmentObject var coreDateViewModel: ProjectViewModel
+    @State private var selectedProjects = ProjectEntity()
     
     var body: some View {
         NavigationStack {
@@ -85,7 +88,6 @@ struct InspectionView: View {
                         }
                     }
                     
-                    
                     VStack(alignment: .leading) {
                         HStack() {
                             Text("Equipment:")
@@ -101,11 +103,35 @@ struct InspectionView: View {
                         Rectangle()
                             .fill(.black.opacity(0.5))
                             .frame(maxHeight: 1.2)
-                       
+                        
+                        Picker("Select Project", selection: $selectedProjects) {
+                            ForEach(coreDateViewModel.savedEntities.sorted(by: { $0.projectName ?? "" > $1.projectName ?? "" }), id: \.self) { items in
+                                Text(items.projectName ?? "")
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        
+//                        Picker("Selection", selection: $selectedProjects, content: {
+//                            ForEach(arrayProjects, id: \.self) { items in
+//                                Text(items)}
+//                        })
+//                        .pickerStyle(.menu)
+                        
+//                     Picker("Select Project", selection: $selectedProjects, content: {
+//                         ForEach(coreDateViewModel.savedEntities, id: \.self) { items in
+//                             Text(items.projectName ?? "")
+//                         }
+//                     })
+//                     .pickerStyle(.inline)
+                        
                     }
                     
                     
                     .padding(.vertical, 10)
+                    
+                    .onAppear {
+                        coreDateViewModel.fetchEquipmentEntities()
+                    }
                 }
                 .padding(.horizontal)
                 
@@ -130,10 +156,6 @@ struct InspectionView: View {
                 .frame(minWidth: 220, minHeight: 60)
                 .padding(.horizontal, 10)
            //     .padding(.vertical, 10)
-                
-                .onAppear {
-                    coreDateViewModel.fetchEquipmentEntities()
-                }
             }
         //    .background(.thinMaterial)
             .background(backgroundGradient)
@@ -524,7 +546,7 @@ extension InspectionView {
                     Divider()
                     
                     HStack(spacing: 0) {
-                        Text("Steering & Secondary Steering")
+                        Text("Steering")
                             .fontWeight(.medium)
                             .font(.subheadline)
                         
@@ -539,43 +561,117 @@ extension InspectionView {
                     .frame(minWidth: 320, alignment: .bottomLeading)
                     Divider()
                     
+                    HStack(spacing: 0) {
+                        Text("Travel & Backup Alarm")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $natravelAlarm, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
+                    HStack(spacing: 0) {
+                        Text("Diagnostic Trouble Code")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $naDiagnostic, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
+                    HStack(spacing: 0) {
+                        Text("Engine Oil")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $naEngineOils, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
+                    HStack(spacing: 0) {
+                        Text("Hydraulic Oil")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $nahydraulicOils, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
+                    HStack(spacing: 0) {
+                        Text("Transmission Oil")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $natransmissionOil, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
+                    HStack(spacing: 0) {
+                        Text("Engine Coolant")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $naengineCoolant, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    HStack(spacing: 0) {
+                        Text("Def")
+                            .fontWeight(.medium)
+                            .font(.subheadline)
+                        
+                        Picker("", selection: $naDef, content: {
+                            ForEach(safeArray, id: \.self) { safety in
+                                Text(safety)
+                            }
+                        })
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal, 16)
+                    }
+                    .frame(minWidth: 320, alignment: .bottomLeading)
+                    Divider()
                     
                 }
             }
