@@ -47,6 +47,7 @@ final class ProjectViewModel: ObservableObject {
         print(projectNumber)
         print(jobDate)
         print(imageProject ?? (Any).self)
+        print(jobsiteDescription)
         
         saveEquipmentEntities()
     }

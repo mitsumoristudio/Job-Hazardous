@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "checkmark.png",
+      "filename" : "DailyReportLogo.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -10,6 +10,13 @@
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
+    },
+    {
+      "filename" : "checkmark.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024",
+      "unassigned" : true
     }
   ],
   "info" : {

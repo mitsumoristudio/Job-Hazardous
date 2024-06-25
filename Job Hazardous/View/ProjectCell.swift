@@ -86,14 +86,9 @@ struct ProjectCell: View {
         
         .background {
             RoundedRectangle(cornerRadius: 12,style: .continuous)
-                .fill(Color(categoryColor))
-            //            if categoryColor == categoryColor {
-            //                RoundedRectangle(cornerRadius: 12, style: .continuous)
-            //                    .fill(Color(categoryColor))
-            //            } else {
-            //                RoundedRectangle(cornerRadius: 12, style: .continuous)
-            //                    .fill(Color(.systemGray))
-            //            }
+                .fill(Color(.systemGray6))
+                .shadow(radius: 12, x: 5, y: 5)
+        
         }
     }
 }

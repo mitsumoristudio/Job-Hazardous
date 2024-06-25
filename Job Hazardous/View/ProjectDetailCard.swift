@@ -16,6 +16,7 @@ struct ProjectDetailCard: View {
     @State  var client: String
     @State  var projectdetails: String
     
+    @Environment(\.dismiss) var dismiss
     @State var projectImage: Data?
     
     var body: some View {
@@ -72,6 +73,32 @@ struct ProjectDetailCard: View {
                 }
             }
             .ignoresSafeArea(.all, edges: .top)
+            .navigationBarBackButtonHidden(true)
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    dismiss()
+                    
+                }, label: {
+                    Image(systemName: "chevron.backward.circle")
+                        .foregroundColor(Color.white)
+                        .background(Color.black, in: Circle())
+                        .font(.title)
+                })
+            })
+            
+            ToolbarItem(placement: .navigationBarTrailing, content: {
+                NavigationLink(destination: {
+                    InspectionView().environmentObject(ProjectViewModel())
+                }, label: {
+                    Image(systemName: "plus.circle.fill")
+                        .foregroundColor(Color.white)
+                        .background(Color.black, in: Circle())
+                        .font(.title)
+                })
+            })
+            
         }
     }
 }

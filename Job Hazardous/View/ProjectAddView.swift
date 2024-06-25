@@ -12,7 +12,7 @@ struct ProjectAddView: View {
     
     var backgroundGradientlight =  Color(#colorLiteral(red: 0.3628445035, green: 0.8369211084, blue: 0.7693976097, alpha: 0.7386692881))
     @State var category: String = ""
-    @State var description: String = ""
+    @State var jobsitedescription: String = ""
     @State var dateSelect: Date = .init()
     @State var projectName: String = ""
     @State var projectNumber: String = ""
@@ -34,7 +34,7 @@ struct ProjectAddView: View {
         return UIScreen.main.bounds
     }
     
-    func titleView(_ value: String, _ color: Color = .white.opacity(0.7)) -> some View {
+    func titleView(_ value: String, _ color: Color = .white.opacity(0.9)) -> some View {
         Text(value)
             .font(.system(size: 16, design: .rounded))
             .foregroundStyle(color)
@@ -151,7 +151,7 @@ struct ProjectAddView: View {
                             
                             VStack(alignment: .leading, spacing: 10) {
                                 
-                                colorPalleteSelection
+                            //    colorPalleteSelection
                                 
                                 Text("Details of Jobsite")
                                     .font(.headline)
@@ -159,7 +159,7 @@ struct ProjectAddView: View {
                                     .foregroundColor(Color.white).opacity(0.8)
                                 
                                 HStack(spacing: 5) {
-                                    TextEditor(text: $description)
+                                    TextEditor(text: $jobsitedescription)
                                         .frame(minWidth: 320, minHeight: 80, alignment: .center)
                                         .cornerRadius(10)
                                         .padding(.vertical, 2)
@@ -181,14 +181,14 @@ struct ProjectAddView: View {
                                     let laterTimeNow = timeNow
                                     let dateOnlyFormat = laterTimeNow.string(from: dateSelect)
                                     
-                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: description, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor, imageProject: selectedImage)
+                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: jobsitedescription, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor, imageProject: selectedImage)
                                     
                                     superintendent = ""
                                     projectNumber = ""
                                     projectName = ""
                                     projectManager = ""
                                     projectLocation = ""
-                                    description = ""
+                                    jobsitedescription = ""
                                     client = ""
                                     
                                 }, label: {
