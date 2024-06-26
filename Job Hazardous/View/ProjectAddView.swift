@@ -87,7 +87,6 @@ struct ProjectAddView: View {
                                         DatePicker("", selection: $dateSelect, displayedComponents: [.date])
                                             .blendMode(.destinationOver)
                                     }
-                                
                                 showImagePickerPhoto
                             }
                             .offset(y: -5)
@@ -279,12 +278,13 @@ extension ProjectAddView {
             }, label: {
                 HStack {
                     GradientIconButton(icon: "camera.fill")
-                        .padding(.horizontal, 15)
+                        .padding(.horizontal, 0)
                     
                     Text("Insert Photos")
                         .foregroundStyle(Color.black)
                         .font(.subheadline)
-                        .frame(minWidth: 40, minHeight: 40)
+                        .lineLimit(2)
+                  //      .frame(minWidth: 40, minHeight: 40)
                     
                     Image(uiImage: selectedImage ?? UIImage())
                         .resizable()

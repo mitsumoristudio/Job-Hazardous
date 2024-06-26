@@ -104,29 +104,21 @@ struct InspectionView: View {
                             .fill(.black.opacity(0.5))
                             .frame(maxHeight: 1.2)
                         
-                        Picker("Select Project", selection: $selectedProjects) {
-                            ForEach(coreDateViewModel.savedEntities.sorted(by: { $0.projectName ?? "" > $1.projectName ?? "" }), id: \.self) { items in
-                                Text(items.projectName ?? "")
+                        HStack() {
+                            
+                            Text("Project:")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                            
+                            Picker("Select Project", selection: $selectedProjects) {
+                                ForEach(coreDateViewModel.savedEntities.sorted(by: { $0.projectName ?? "" > $1.projectName ?? "" }), id: \.self) { items in
+                                    Text(items.projectName ?? "")
+                                }
                             }
+                            .pickerStyle(.menu)
                         }
-                        .pickerStyle(.menu)
-                        
-//                        Picker("Selection", selection: $selectedProjects, content: {
-//                            ForEach(arrayProjects, id: \.self) { items in
-//                                Text(items)}
-//                        })
-//                        .pickerStyle(.menu)
-                        
-//                     Picker("Select Project", selection: $selectedProjects, content: {
-//                         ForEach(coreDateViewModel.savedEntities, id: \.self) { items in
-//                             Text(items.projectName ?? "")
-//                         }
-//                     })
-//                     .pickerStyle(.inline)
-                        
                     }
-                    
-                    
+                         
                     .padding(.vertical, 10)
                     
                     .onAppear {
@@ -155,17 +147,15 @@ struct InspectionView: View {
                 }
                 .frame(minWidth: 220, minHeight: 60)
                 .padding(.horizontal, 10)
-           //     .padding(.vertical, 10)
+     
             }
         //    .background(.thinMaterial)
             .background(backgroundGradient)
-     //       .background(VisualEffectBlur(blurStyle: .systemUltraThinMaterialLight))
+  
             .padding(.horizontal, 10)
             .navigationTitle("Equipment Pre-Inspection")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            
-            
             
         }
         .toolbar {
