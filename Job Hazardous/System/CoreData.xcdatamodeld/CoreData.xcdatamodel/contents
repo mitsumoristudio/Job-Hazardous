@@ -24,14 +24,16 @@
         <attribute name="overallCleanliness" optional="YES" attributeType="String"/>
         <attribute name="parkBrakes" optional="YES" attributeType="String"/>
         <attribute name="seats" optional="YES" attributeType="String"/>
+        <attribute name="selectedProject" optional="YES" attributeType="String"/>
         <attribute name="steering" optional="YES" attributeType="String"/>
         <attribute name="tires" optional="YES" attributeType="String"/>
         <attribute name="transmissionOil" optional="YES" attributeType="String"/>
         <attribute name="travelAlarms" optional="YES" attributeType="String"/>
         <attribute name="undertheMachine" optional="YES" attributeType="String"/>
         <attribute name="windshield" optional="YES" attributeType="String"/>
+        <relationship name="equipmenttoProject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectEntity" inverseName="projectToEquipment" inverseEntity="ProjectEntity"/>
     </entity>
-    <entity name="ProjectEntity" representedClassName="ProjectEntity" syncable="YES" codeGenerationType="class">
+    <entity name="ProjectEntity" representedClassName="ProjectEntity" syncable="YES">
         <attribute name="categoryColor" optional="YES" attributeType="String"/>
         <attribute name="client" optional="YES" attributeType="String"/>
         <attribute name="jobsiteDescription" optional="YES" attributeType="String"/>
@@ -42,5 +44,6 @@
         <attribute name="projectName" optional="YES" attributeType="String"/>
         <attribute name="projectNumber" optional="YES" attributeType="String"/>
         <attribute name="superintendent" optional="YES" attributeType="String"/>
+        <relationship name="projectToEquipment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquipmentEntity" inverseName="equipmenttoProject" inverseEntity="EquipmentEntity"/>
     </entity>
 </model>

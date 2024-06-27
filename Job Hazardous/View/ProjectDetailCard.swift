@@ -23,19 +23,23 @@ struct ProjectDetailCard: View {
         NavigationStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 10) {
+                    
                     if projectImage != nil {
                         Image(uiImage: UIImage(data: projectImage!)!)
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(minWidth: 330, minHeight: 330)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(minWidth: 330, maxHeight: 330)
                             .shadow(radius: 5)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     } else {
                         Image("DailyReportLogo")
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(minWidth: 330, minHeight: 330)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(minWidth: 330, maxHeight: 330)
                             .shadow(radius: 5)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     }
+                       
                     // MARK: Add projectHeadlines here
                     Text(projectName)
                         .font(.system(.title2, design: .rounded))
@@ -69,8 +73,9 @@ struct ProjectDetailCard: View {
                     Text(projectdetails)
                         .font(.subheadline)
                         .fontWeight(.medium)
-                    
                 }
+                .padding()
+                
             }
             .ignoresSafeArea(.all, edges: .top)
             .navigationBarBackButtonHidden(true)

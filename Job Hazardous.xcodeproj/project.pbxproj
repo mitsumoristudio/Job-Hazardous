@@ -29,6 +29,9 @@
 		E4E7AE1D2C2A5A5C0029D23B /* struct PreEquipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AE1C2C2A5A5C0029D23B /* struct PreEquipmentModel.swift */; };
 		E4E7AE1F2C2A5F0A0029D23B /* InspectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AE1E2C2A5F0A0029D23B /* InspectionView.swift */; };
 		E4E7AE212C2C1A610029D23B /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AE202C2C1A610029D23B /* MenuRow.swift */; };
+		E4E7AE242C2CE0ED0029D23B /* ProjectEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AE222C2CE0ED0029D23B /* ProjectEntity+CoreDataClass.swift */; };
+		E4E7AE252C2CE0ED0029D23B /* ProjectEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AE232C2CE0ED0029D23B /* ProjectEntity+CoreDataProperties.swift */; };
+		E4E7AE272C2CF04B0029D23B /* EquipmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E7AE262C2CF04B0029D23B /* EquipmentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		E4E7AE1C2C2A5A5C0029D23B /* struct PreEquipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "struct PreEquipmentModel.swift"; sourceTree = "<group>"; };
 		E4E7AE1E2C2A5F0A0029D23B /* InspectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionView.swift; sourceTree = "<group>"; };
 		E4E7AE202C2C1A610029D23B /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
+		E4E7AE222C2CE0ED0029D23B /* ProjectEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4E7AE232C2CE0ED0029D23B /* ProjectEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProjectEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4E7AE262C2CF04B0029D23B /* EquipmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 		E4E7AD392C250BD70029D23B = {
 			isa = PBXGroup;
 			children = (
+				E4E7AE222C2CE0ED0029D23B /* ProjectEntity+CoreDataClass.swift */,
+				E4E7AE232C2CE0ED0029D23B /* ProjectEntity+CoreDataProperties.swift */,
 				E4E7AD442C250BD70029D23B /* Job Hazardous */,
 				E4E7AD552C250BD90029D23B /* Job HazardousTests */,
 				E4E7AD5F2C250BD90029D23B /* Job HazardousUITests */,
@@ -200,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E7AD7E2C250E490029D23B /* ProjectViewModel.swift */,
+				E4E7AE262C2CF04B0029D23B /* EquipmentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,16 +353,19 @@
 			files = (
 				E4E7AE1B2C290BE20029D23B /* ProjectDetailCard.swift in Sources */,
 				E4E7AD7F2C250E490029D23B /* ProjectViewModel.swift in Sources */,
+				E4E7AE252C2CE0ED0029D23B /* ProjectEntity+CoreDataProperties.swift in Sources */,
 				E4E7AD752C250C640029D23B /* VisualEffectBlur.swift in Sources */,
 				E4E7AD782C250D0D0029D23B /* TextFrameModifier.swift in Sources */,
 				E4E7AD7D2C250DCB0029D23B /* CoreData.xcdatamodeld in Sources */,
 				E4E7AD832C250F120029D23B /* ProjectCell.swift in Sources */,
+				E4E7AE272C2CF04B0029D23B /* EquipmentViewModel.swift in Sources */,
 				E4E7AE1F2C2A5F0A0029D23B /* InspectionView.swift in Sources */,
 				E4E7AD872C2510940029D23B /* ProjectAddView.swift in Sources */,
 				E4E7AD7A2C250D4C0029D23B /* ImagePicker.swift in Sources */,
 				E4E7AD852C250FAB0029D23B /* ProjectListView.swift in Sources */,
 				E4E7AE192C28B4BD0029D23B /* ProjectCard.swift in Sources */,
 				E4E7AE212C2C1A610029D23B /* MenuRow.swift in Sources */,
+				E4E7AE242C2CE0ED0029D23B /* ProjectEntity+CoreDataClass.swift in Sources */,
 				E4E7AD482C250BD70029D23B /* ContentView.swift in Sources */,
 				E4E7AD812C250EF20029D23B /* SetUpView.swift in Sources */,
 				E4E7AD462C250BD70029D23B /* Job_HazardousApp.swift in Sources */,

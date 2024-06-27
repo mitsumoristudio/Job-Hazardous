@@ -52,7 +52,6 @@ struct ProjectListView: View {
             }
         }
     }
-    
 }
 
 struct ProjectListView_Preview: PreviewProvider {

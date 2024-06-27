@@ -23,12 +23,12 @@ final class ProjectViewModel: ObservableObject {
         persistentContainer.loadPersistentStores(completionHandler: {(description, error) in
             if let error = error {
               //  print("Core Data Storage Error \(error.localizedDescription)")
-                fatalError("Core Date Storage Failed \(error.localizedDescription)")
+                fatalError("Core Data Storage Failed \(error.localizedDescription)")
             }
         })
     }
     
-    func addEquipments(superintendent: String, projectNumber: String, projectName: String, projectManager: String, location: String, jobsiteDescription: String, jobDate: String, client: String, categoryColor: String, imageProject: UIImage?) {
+    func addProjects(superintendent: String, projectNumber: String, projectName: String, projectManager: String, location: String, jobsiteDescription: String, jobDate: String, client: String, categoryColor: String, imageProject: UIImage?) {
         let newEntity = ProjectEntity(context: persistentContainer.viewContext)
         newEntity.superintendent = superintendent
         newEntity.projectNumber = projectNumber

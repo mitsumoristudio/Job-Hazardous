@@ -15,7 +15,6 @@ struct ProjectCell: View {
     @State var projectLocation: String
     @State var categoryColor: String
     @State var projectImage: Data?
-    //  @ObservedObject var projectEntity : ProjectEntity
     
     private func getScreenRect() -> CGRect {
         return UIScreen.main.bounds
@@ -33,7 +32,7 @@ struct ProjectCell: View {
                         Capsule()
                             .fill(.white.opacity(0.40))
                             .frame(minWidth: 180, minHeight: 36)
-                        //  .frame(width: 160, height: 40)
+                        
                     }
                     .padding(.horizontal, 10)
                 
@@ -50,7 +49,7 @@ struct ProjectCell: View {
                 }
             }
             .padding(.vertical, 2)
-                
+            
             Text(projectName)
                 .font(.title3)
                 .fontWeight(.semibold)
@@ -82,13 +81,12 @@ struct ProjectCell: View {
         
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding([.leading, .horizontal, .bottom])
-        //        .frame(width: 360, height: getScreenRect().height/4.0, alignment: .leading)
         
         .background {
             RoundedRectangle(cornerRadius: 12,style: .continuous)
                 .fill(Color(.systemGray6))
                 .shadow(radius: 12, x: 5, y: 5)
-        
+            
         }
     }
 }

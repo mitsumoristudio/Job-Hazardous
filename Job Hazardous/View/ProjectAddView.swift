@@ -150,8 +150,6 @@ struct ProjectAddView: View {
                             
                             VStack(alignment: .leading, spacing: 10) {
                                 
-                            //    colorPalleteSelection
-                                
                                 Text("Details of Jobsite")
                                     .font(.headline)
                                     .padding(.top, 2)
@@ -162,8 +160,7 @@ struct ProjectAddView: View {
                                         .frame(minWidth: 320, minHeight: 80, alignment: .center)
                                         .cornerRadius(10)
                                         .padding(.vertical, 2)
-                                     //   .modifier(TextFieldClearButton(nextText: $description))
-                                 //       .modifier(ChangeSmallerFrameSize())
+
                                 }
                                 .offset(x:-6)
                             }
@@ -180,7 +177,7 @@ struct ProjectAddView: View {
                                     let laterTimeNow = timeNow
                                     let dateOnlyFormat = laterTimeNow.string(from: dateSelect)
                                     
-                                    coreDataViewModel.addEquipments(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: jobsitedescription, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor, imageProject: selectedImage)
+                                    coreDataViewModel.addProjects(superintendent: superintendent, projectNumber: projectNumber, projectName: projectName, projectManager: projectManager, location: projectLocation, jobsiteDescription: jobsitedescription, jobDate: dateOnlyFormat, client: client, categoryColor: coreDataViewModel.categoryColor, imageProject: selectedImage)
                                     
                                     superintendent = ""
                                     projectNumber = ""
@@ -208,7 +205,6 @@ struct ProjectAddView: View {
                                 .padding(.horizontal, 140)
                             }
                             .padding()
-
                         }
                     }
                     // MARK: - frame height assigned with CGFloat
@@ -218,7 +214,6 @@ struct ProjectAddView: View {
                     .fullScreenCover(isPresented: $showImagePicker, content: {
                         ImagePicker(image: $selectedImage)
                     })
-                    
                 }
             }
         }
@@ -244,8 +239,7 @@ extension ProjectAddView {
                 ForEach(selectionColors, id: \.self) { colors in
                     Circle()
                         .fill(Color(colors))
-                     
-                        // .frame(minWidth: 40, minHeight: 40)
+                    // .frame(minWidth: 40, minHeight: 40)
                         .frame(width: 36, height: 36, alignment: .center)
                         .background {
                             if coreDataViewModel.categoryColor == colors {
@@ -254,20 +248,17 @@ extension ProjectAddView {
                                     .padding(-5)
                                     .fontWeight(.semibold)
                             }
-                            }
+                        }
                         .contentShape(Circle())
                     
                     // MARK: Add onTapGesture to interact with Color
                         .onTapGesture {
                             coreDataViewModel.categoryColor = colors
                         }
-                    
                 }
             }
             .offset(x:-6)
-            
         }
-        
     }
     
     @ViewBuilder

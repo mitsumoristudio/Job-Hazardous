@@ -200,7 +200,6 @@ extension InspectionView {
             .font(.system(size: 18))
             .foregroundStyle(color)
             .fontWeight(.semibold)
-        
     }
 }
 
